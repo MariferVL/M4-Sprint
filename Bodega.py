@@ -1,3 +1,18 @@
+## Mensaje New Day ##
+    # Dando Fruto
+
+
+
+#Mi filosofía de vida:
+        # Siempre nada es personal
+        # Solo ves en mi lo que crees de ti.
+        # Solo juzgas en mi aquello que existe en ti.
+        # No puedes ver lo que no está en ti.
+
+
+
+
+
 """ clase Bodega
 Atributos:
 ● Id
