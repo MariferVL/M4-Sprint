@@ -1,4 +1,4 @@
-from poo import Vendedor
+from Bodega import Vendedor
 import dalecolor as dc
 class Excepcion():
 
