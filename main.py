@@ -44,12 +44,17 @@ class Bodega:
             key = transferencia[0]
             value = transferencia[1]
 
- 
-        # inst_bodega_destino[transf_tipo] += transf_cantidad
-        # self.id[transf_tipo] -= transf_cantidad
-        # transf_tipo_ = transf_tipo
-        # transf_cantidad_ = transf_cantidad
+    
+        if key in [*inst_bodega_destino.stock]:
+            inst_bodega_destino.stock[key] += value
+        else:
+            inst_bodega_destino.stock[key] = value
+        
+        self.stock[key] -= value
+        transf_tipo_ = key
+        transf_cantidad_ = value
 
+        print(f"---------{key} : {value}---------")
     def transferencia_mostrar_tipo(self):
         x = self.transf_tipo_
         print(x)
@@ -290,7 +295,7 @@ print('mostrar_total_de_productos_en_bodega')
 bodega_a.agregar_proveedor(8)
 bodega_a.eliminar_proveedor(3)
 bodega_a.transferencia_bodega(bodega_b)
-bodega_a.transferencia_bodega(bodega_b, transferencia = ['pc',200])
+# bodega_a.transferencia_bodega(bodega_b, transferencia = ['pc',200])
 # bodega_a.transferencia_mostrar_tipo()
 # bodega_a.transferencia_mostrar_total()
 
