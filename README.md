@@ -13,15 +13,17 @@
 
 <b>Autores</b>
 <br/>
-Francisco Astete - Patricio Garrido - Javier Espinoza - María-Fernanda Villalobos 
+Francisco Astete - Ricardo Castillo - Javier Espinoza - Patricio Garrido - María-Fernanda Villalobos 
 <br/>
 
 <br/>
 GitHub: https://github.com/PanchoAste
   <br />
-GitHub: https://github.com/patricio-dsgn
+GitHub: https://github.com/Myrhoracv
   <br />
-GitHub:
+GitHub: https://github.com/javierespinozat
+  <br />
+GitHub: https://github.com/patricio-dsgn
   <br />
 GitHub: https://github.com/Marifer1111
 <br />
