@@ -134,7 +134,7 @@ user_2 = User(861, 'camilo', 'operario')
 
 # - - - - - - - - - - - - - - -
 
-print(dc.jumbo(f"PRE-CAMBIOS"))
+print(dc.jumbo(f"instaciación usuarios, bodegas, proveedores"))
 
 print()
 dc.print_table(
@@ -201,10 +201,12 @@ dc.print_table(
 
 
 # print{bodega_a.__cantidad_total_de_productos}
-print(dc.jumbo(f"Testeo CAMBIOS:)"))
-print('inscripción')
-print('modificación producto)')
+print(dc.jumbo(f"inscripción y modificación de productos"))
+
+print('proveedor_2.inscripcion_en_bodega(bodega_c)')
 proveedor_2.inscripcion_en_bodega(bodega_c)
+
+print('proveedor_2.mod_producto("car")')
 proveedor_2.mod_producto('car')
 
 
@@ -249,7 +251,7 @@ print()
 print()
 
 print()
-print(f"consulta:")
+print(dc.jumbo("consultas de usurios"))
 
 print()
 
@@ -318,7 +320,7 @@ print(f"mostrar_total_de_productos_en_bodega {bodega_a.mostrar_total_de_producto
 
 
 
-print()
+print(dc.jumbo("status bodega"))
 dc.print_table(
     [
         ['bodega_a', bodega_a.id, bodega_a.nombre, bodega_a.proveedores, bodega_a.stock],
