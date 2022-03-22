@@ -90,19 +90,25 @@ def jumbo(txt,size=1):
     return block
 
 
-def table(list, head = None, head_style = None, style = None, align = None, padding = None, margin = None):
+def print_table(list, head = None, head_style = None, style = None, align = None, padding = None, margin = None):
+    
+    if style == None: style = ['normal', 'white', None]
+    if head_style == None: head_style = ['normal', 'white', None]
+
     length_cols = {}
 
 
     # largos primera fila
     c = 0
     for col in list[0]:
+        col = str(col)
         length_cols[c] = len(col)
         c += 1
 
     for row in list:
         c = 0
         for col in row:
+            col = str(col)
             if len(col) > length_cols[c]:
                 length_cols[c] = len(col)
             c += 1
@@ -142,22 +148,24 @@ def table(list, head = None, head_style = None, style = None, align = None, padd
 
     margin_str = margin
     padding_str = padding
+    if margin_str == None: margin_str = ''
+    if padding_str == None: padding_str = ''
 
     # print(head)
     if head != None:
         row_temp = ''
         count_col = 0
         for c in head:
+            c = str(c)
             mult = length_cols[count_col]-len(c)
             xs = ''
-            
             if count_col == len(length_cols)-1: margin_str = ''
 
             if align == None or align == 'left':
-                space = ('.'*mult)
+                space = (' '*mult)
                 row_temp += f(padding_str+(c+space+padding_str),head_style[0] ,head_style[1],head_style[2])+margin_str
             elif align == 'rigth':
-                space = ('.'*mult)
+                space = (' '*mult)
                 row_temp += f(padding_str+(space+c+padding_str),head_style[0] ,head_style[1],head_style[2])+margin_str
             elif align == 'center':
                 flag1 = len(c)%2 != 0 and length_cols[count_col]%2 != 0
@@ -177,11 +185,13 @@ def table(list, head = None, head_style = None, style = None, align = None, padd
 
         margin_str = margin
         padding_str = padding
+        if margin_str == None: margin_str = ''
+        if padding_str == None: padding_str = ''
 
         for c in row:
+            c = str(c)
             mult = length_cols[count_col]-len(c)
             xs = ''
-
             if count_col == len(length_cols)-1: margin_str = ''
 
             if align == None or align == 'left':
@@ -198,21 +208,41 @@ def table(list, head = None, head_style = None, style = None, align = None, padd
                 row_temp += f((padding_str+space+c+space+padding_str+xs), style[0], style[1], style[2])+margin_str
             count_col += 1
         print(row_temp)
-
-
-def tof(x, color1, color2):
-    if x == True:
-        print(f(x, color1))
-    else:
-        print(f(x, color2))
-
-
-
+    
 
 def clear():
     print(chr(27)+'[2j')
     print('\033c')
     print('\x1bc')
 
+
+
+def anchor(string1 = None, file1 = None):
+
+    if file1 == None:
+        import sys, os
+        file1 = os.path.basename(sys.argv[0])
+
+    # opening a text file
+    file1 = open(file1, "r")    
+    # setting flag and index to 0
+    flag = 0
+    index = 0
+    out = ''
+    # Loop through the file line by line
+    for line in file1:  
+        index += 1 
+        # checking string is present in line or not
+        if string1 in line:
+            flag = 1
+            break
+    # checking condition for string found or not
+    if flag == 0: 
+        out = 'Not Exist'
+    else: 
+        out = index
+    # closing text file    
+    file1.close() 
+    return out
 
 
