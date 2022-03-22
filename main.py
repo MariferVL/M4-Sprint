@@ -30,12 +30,12 @@ class Bodega:
     transf_tipo_ = ''
     transf_cantidad_ = 0
 
-    def transferencia_bodega(self, inst_bodega1, inst_bodega2, transf_tipo = None, transf_cantidad = None):
+    def transferencia_bodega(self, inst_bodega_destino, transf_tipo = None, transf_cantidad = None):
         # if tipo is None or cantidad is None:
         #     num_pro = len(inst_bodega1.stock)
         #     n = random.randint(num_pro)
-        inst_bodega1[transf_tipo] += transf_cantidad
-        inst_bodega2[transf_tipo] -= transf_cantidad
+        inst_bodega_destino[transf_tipo] += transf_cantidad
+        self.id[transf_tipo] -= transf_cantidad
         transf_tipo_ = transf_tipo
         transf_cantidad_ = transf_cantidad
 
@@ -180,12 +180,10 @@ dc.print_table(
 
 
 # print{bodega_a.__cantidad_total_de_productos}
-print(dc.jumbo(f"CAMBIOS)"))
-
-
+print(dc.jumbo(f"Testeo CAMBIOS:)"))
+print('incripcion')
+print('modificacion producto)')
 proveedor_2.inscripcion_en_bodega(bodega_c)
-
-
 proveedor_2.mod_producto('car')
 
 
@@ -251,6 +249,58 @@ dc.print_table(
     head = ['consulta', 'salida'],
     head_style = ['normal', 'white', 'BLUE'],
     style = ['normal', 'black', 'BLUE'],
+    align = 'left',
+    padding = ' ',
+    margin = ' '
+)
+
+
+
+
+
+
+
+
+
+
+
+
+
+print(dc.jumbo(f"Testeo CAMBIOS:)"))
+print('agregar_proveedor')
+print('eliminar_proveedor')
+print('transferencia_bodega')
+print('transferencia_mostrar_tipo')
+print('transferencia_mostrar_total')
+print('mostrar_total_de_productos_en_bodega')
+
+
+# bodega_a.agregar_proveedor('proveedor')
+# bodega_a.eliminar_proveedor('proveedor_eliminar')
+# bodega_a.transferencia_bodega(bodega_b, transf_tipo = None, transf_cantidad = None)
+# bodega_a.transferencia_mostrar_tipo()
+# bodega_a.transferencia_mostrar_total()
+
+# bodega_a.mostrar_total_de_productos_en_bodega()
+
+
+
+
+
+
+
+
+
+print()
+dc.print_table(
+    [
+        ['bodega_a', bodega_a.id, bodega_a.nombre, bodega_a.proveedores, bodega_a.stock],
+        ['bodega_b', bodega_b.id, bodega_b.nombre, bodega_b.proveedores, bodega_b.stock],
+        ['bodega_c', bodega_c.id, bodega_c.nombre, bodega_c.proveedores, bodega_c.stock],
+    ],
+    head = ['bodega', 'id', 'nombre', 'proveedores', 'stock'],
+    head_style = ['normal', 'white', 'GREEN'],
+    style = ['normal', 'black', 'GREEN'],
     align = 'left',
     padding = ' ',
     margin = ' '
