@@ -22,10 +22,12 @@ class Bodega:
         self.stock = stock
     
     def agregar_proveedor(self, proveedor):
-        self.proveedores.append(proveedor)
+        if proveedor not in self.proveedores:
+            self.proveedores.append(proveedor)
 
     def eliminar_proveedor(self, proveedor_eliminar):
-        self.proveedores.remove(proveedor_eliminar)
+        if proveedor_eliminar in self.proveedores:
+            self.proveedores.remove(proveedor_eliminar)
 
     transf_tipo_ = ''
     transf_cantidad_ = 0
@@ -48,7 +50,8 @@ class Bodega:
         print(x)
 
     def mostrar_total_de_productos_en_bodega(self):
-        total(self.stock)
+        x = total(self.stock)
+        print(f"total de productos en bodega: {x}")
 
 
 class Proveedor:
@@ -267,21 +270,21 @@ dc.print_table(
 
 
 print(dc.jumbo(f"Testeo CAMBIOS:)"))
-print('agregar_proveedor')
-print('eliminar_proveedor')
+print('agregar_proveedor id 8 en bodega_a')
+print('eliminar_proveedor id 2 en bodega_a')
 print('transferencia_bodega')
 print('transferencia_mostrar_tipo')
 print('transferencia_mostrar_total')
 print('mostrar_total_de_productos_en_bodega')
 
 
-# bodega_a.agregar_proveedor('proveedor')
-# bodega_a.eliminar_proveedor('proveedor_eliminar')
+bodega_a.agregar_proveedor(8)
+bodega_a.eliminar_proveedor(3)
 # bodega_a.transferencia_bodega(bodega_b, transf_tipo = None, transf_cantidad = None)
 # bodega_a.transferencia_mostrar_tipo()
 # bodega_a.transferencia_mostrar_total()
 
-# bodega_a.mostrar_total_de_productos_en_bodega()
+bodega_a.mostrar_total_de_productos_en_bodega()
 
 
 
