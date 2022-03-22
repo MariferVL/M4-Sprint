@@ -15,12 +15,13 @@ def total(bod_stock):
 
 
 class Bodega:
-    def __init__(self, id, nombre, total_stock, proveedores, stock):
+    def __init__(self, id, nombre, total_stock, proveedores, stock, transferencias = None):
         self.id = id
         self.nombre = nombre
         self.__cantidad_total_de_productos = total_stock
         self.proveedores = proveedores
         self.stock = stock
+        self.transferencias = transferencias
     
     def agregar_proveedor(self, proveedor):
         if proveedor not in self.proveedores:
@@ -51,21 +52,24 @@ class Bodega:
             inst_bodega_destino.stock[key] = value
         
         self.stock[key] -= value
-        transf_tipo_ = key
-        transf_cantidad_ = value
+        if self.transferencias ==  None:
+            self.transferencias = []
+        
+        self.transferencias.append([key, value])
 
-        print(f"---------{key} : {value}---------")
+        # print(f"---------{key} : {value}---------")
+
     def transferencia_mostrar_tipo(self):
-        x = self.transf_tipo_
-        print(x)
+        last = self.transferencias[-1]
+        return(last[0])
 
-    def transferencia_mostrar_total(self):
-        x = self.transf_cantidad_
-        print(x)
+    def transferencia_mostrar_cantidad(self):
+        last = self.transferencias[-1]
+        return(last[1])
 
     def mostrar_total_de_productos_en_bodega(self):
         x = total(self.stock)
-        print(f"total de productos en bodega: {x}")
+        return (f"total de productos en bodega: {x}")
 
 
 class Proveedor:
@@ -198,8 +202,8 @@ dc.print_table(
 
 # print{bodega_a.__cantidad_total_de_productos}
 print(dc.jumbo(f"Testeo CAMBIOS:)"))
-print('incripcion')
-print('modificacion producto)')
+print('inscripción')
+print('modificación producto)')
 proveedor_2.inscripcion_en_bodega(bodega_c)
 proveedor_2.mod_producto('car')
 
@@ -282,24 +286,29 @@ dc.print_table(
 
 
 
+# agregar y eliminar proveedor
+print(dc.jumbo(f"agregar y eliminar proveedor:"))
 
-print(dc.jumbo(f"Testeo CAMBIOS:)"))
 print('agregar_proveedor id 8 en bodega_a')
-print('eliminar_proveedor id 2 en bodega_a')
-print('transferencia_bodega')
-print('transferencia_mostrar_tipo')
-print('transferencia_mostrar_total')
-print('mostrar_total_de_productos_en_bodega')
-
-
 bodega_a.agregar_proveedor(8)
+
+print('eliminar_proveedor id 2 en bodega_a')
 bodega_a.eliminar_proveedor(3)
+
+
+
+#tranferencias bodegas
+print(dc.jumbo("transferencia_bodega"))
 bodega_a.transferencia_bodega(bodega_b)
 # bodega_a.transferencia_bodega(bodega_b, transferencia = ['pc',200])
-# bodega_a.transferencia_mostrar_tipo()
-# bodega_a.transferencia_mostrar_total()
 
-bodega_a.mostrar_total_de_productos_en_bodega()
+print(f"transferencia_mostrar_tipo: {bodega_a.transferencia_mostrar_tipo()}")
+print(f"transferencia_mostrar_cantidad: {bodega_a.transferencia_mostrar_cantidad()}")
+
+
+print()
+print(f"mostrar_total_de_productos_en_bodega {bodega_a.mostrar_total_de_productos_en_bodega()}")
+
 
 
 
