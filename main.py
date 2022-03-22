@@ -65,7 +65,7 @@ class Proveedor:
         self.tipo = nuevo_tipo
 
 
-# anchor_User_class
+
 class User:
     def __init__(self, id, nombre, tipo):
         self.id = id
@@ -104,7 +104,7 @@ bodega_a = Bodega(1, bod[1][0], total(bod[1][2]), bod[1][1], bod[1][2])
 bodega_b = Bodega(2, bod[2][0], total(bod[2][2]), bod[2][1], bod[2][2])
 bodega_c = Bodega(3, bod[3][0], total(bod[3][2]), bod[3][1], bod[3][2])
 
-# anchor_User_instance
+
             # id   nombre    tipo
 user_0 = User(35, 'andres', 'administrador')
 user_1 = User(235, 'beatriz', 'operario')
@@ -129,8 +129,8 @@ dc.print_table(
     padding = ' ',
     margin = ' '
 )
-# print(f"l: {dc.anchor('# anchor_User_class')} class")
-# print(f"l: {dc.anchor('# anchor_User_instance')} instance")
+
+
 
 print()
 dc.print_table(
@@ -146,8 +146,8 @@ dc.print_table(
     padding = ' ',
     margin = ' '
 )
-# print(f"l: {dc.anchor('# anchor_User_class')} class")
-# print(f"l: {dc.anchor('# anchor_User_instance')} instance")
+
+
 
 print()
 dc.print_table(
@@ -165,8 +165,8 @@ dc.print_table(
     padding = ' ',
     margin = ' '
 )
-# print(f"l: {dc.anchor('# anchor_User_class')} class")
-# print(f"l: {dc.anchor('# anchor_User_instance')} instance")
+
+
 
 
 
@@ -184,10 +184,10 @@ print(dc.jumbo(f"CAMBIOS)"))
 
 
 proveedor_2.inscripcion_en_bodega(bodega_c)
-# print(f"l: {dc.anchor('# anchor_inscripcion_en_bodega')-1} execute method -> proveedor_2.inscripcion_en_bodega(bodega_c)")
+
 
 proveedor_2.mod_producto('car')
-# print(f"l: {dc.anchor('# anchor_mod_producto')-1} execute method -> proveedor_2.mod_producto('car')")
+
 
 
 
@@ -231,7 +231,7 @@ print()
 
 print()
 print(f"consulta:")
-# print(dc.jumbo(f"consulta (line {dc.anchor('anchor-03')})"))
+
 print()
 
 dc.print_table(

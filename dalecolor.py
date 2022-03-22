@@ -1,6 +1,6 @@
 #format to string
 import math
-
+import sys, os
 
 def f(txt, a = None, b = None, c = None):
     style_font = { "normal" : 0, "bold" : 1, "weak" : 2, "italic" : 3, "underline" : 4, "inverse" : 5, "hide" : 6, "strikeout" : 7 }
@@ -220,7 +220,6 @@ def clear():
 def anchor(string1 = None, file1 = None):
 
     if file1 == None:
-        import sys, os
         file1 = os.path.basename(sys.argv[0])
 
     # opening a text file
@@ -244,5 +243,6 @@ def anchor(string1 = None, file1 = None):
     # closing text file    
     file1.close() 
     return out
+
 
 
